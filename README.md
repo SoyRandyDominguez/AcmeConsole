@@ -13,10 +13,10 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre requirements 📋
 
-change url path in * Program.cs * file and put path where file is located
+change url path in * Acme.Repository\TxtRepository.cs * file and put path where the project is located
 
 ```
-  public static readonly string _url_txt = "C:/Users/Oriontek/Documents/test.txt";
+         private static readonly string _url_txt = @"C:\{project location}\CONSOLE_ACME\Acme.Repository\Data\database.txt";
 ```
 
 ## Author ✒️
