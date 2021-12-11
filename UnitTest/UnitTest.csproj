@@ -74,6 +74,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acme.Application\Acme.Application.csproj">
+      <Project>{57e44c9d-8dc3-408e-9ce9-017cf74f6cdb}</Project>
+      <Name>Acme.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.Models\Acme.Model.csproj">
+      <Project>{21979e9b-7bdf-4a9d-b127-ed1e240974b2}</Project>
+      <Name>Acme.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.Repository\Acme.Repository.csproj">
+      <Project>{eebb6b52-a3cb-4678-956c-1b6b307538b2}</Project>
+      <Name>Acme.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CONSOLE_ACME\AcmeConsole.csproj">
       <Project>{879e54b5-fc74-473f-b2a0-984a02541b80}</Project>
       <Name>AcmeConsole</Name>
