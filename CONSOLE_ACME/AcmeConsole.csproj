@@ -59,6 +59,20 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Application\Acme.Application.csproj">
+      <Project>{57e44c9d-8dc3-408e-9ce9-017cf74f6cdb}</Project>
+      <Name>Acme.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.Models\Acme.Model.csproj">
+      <Project>{21979E9B-7BDF-4A9D-B127-ED1E240974B2}</Project>
+      <Name>Acme.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.Repository\Acme.Repository.csproj">
+      <Project>{eebb6b52-a3cb-4678-956c-1b6b307538b2}</Project>
+      <Name>Acme.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
