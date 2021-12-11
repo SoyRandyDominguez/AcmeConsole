@@ -16,7 +16,9 @@ See **Pre requirements** to know how run the program.
 ### Pre requirements 📋
 
 Change url path in * Acme.Repository\TxtRepository.cs * file and put path where the project is located.
-Inside the Acme.Repository directory there is a "Data" folder that contains the database.txt file
+Inside the Acme.Repository directory there is a "Data" folder that contains the database.txt file.
+
+_As a recommendation, you could go to the base folder of the already cloned project, access the acme.repositoriy directory and the data folder, being inside the folder, section the _database.txt file and copy the location path. _
 
 ```
 private static readonly string _url_txt = @"C:\{project location}\CONSOLE_ACME\Acme.Repository\Data\database.txt";
