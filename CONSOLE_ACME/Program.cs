@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +10,25 @@ namespace AcmeConsole
 {
     public class Program
     {
+        public static readonly string _url_txt = "C:/Users/Oriontek/Documents/test.txt";
 
         static void Main(string[] args)
         {
 
             Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
-            EmployeeTogetherFrequencyTable(getFakeData(3)); Console.WriteLine("");
-            Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
-            EmployeeTogetherFrequencyTable(getFakeData(2,3));
+            Console.WriteLine("");
+            EmployeeTogetherFrequencyTable(GetDataFromTXT());
             Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
             Console.WriteLine("");
-            Console.WriteLine("_*_*_*_*_*_*_ALL TOGETHER_*_*_*_*_*_*");
-            EmployeeTogetherFrequencyTable(getFakeData(5));
+            EmployeeTogetherFrequencyTable(GetFakeData(2,3)); 
             Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
+            Console.WriteLine("");
+
+            Console.WriteLine("_*_*_*_*_*_*_ALL TOGETHER_*_*_*_*_*_*");
+            Console.WriteLine("");
+            EmployeeTogetherFrequencyTable(GetFakeData(5));
+            Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
+            Console.WriteLine("Press any key to exit.....");
             Console.ReadLine();
 
         }
@@ -39,7 +47,7 @@ namespace AcmeConsole
                 Schedule = new List<string>();
             }
         }
-        public static Dictionary<string, string> getFakeData(int cant, int initValue =0)
+        public static Dictionary<string, string> GetFakeData(int cant, int initValue =0)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("RENE", "MO10:00-12:00,TU10:00-12:00,TH01:00-03:00,SA14:00-18:00,SU20:00- 21:00");
@@ -134,14 +142,18 @@ namespace AcmeConsole
                     return false;
 
                 Console.WriteLine("OUTPUT");
+                System.Diagnostics.Debug.WriteLine("OUTPUT");
                 results.ForEach(x =>
                 {
                     Console.Write(x.Name.Replace(" ", "-") + ":");
+                    System.Diagnostics.Debug.Write(x.Name.Replace(" ", "-") + ":");
                     int total = 0;
                     total = x.Schedule.Count();
 
                     Console.Write(total);
+                    System.Diagnostics.Debug.Write(total);
                     Console.WriteLine("");
+                    System.Diagnostics.Debug.WriteLine("");
                 });
             }
             catch (Exception e )
@@ -199,5 +211,39 @@ namespace AcmeConsole
             return schedule.Day + schedule.InitialHour + schedule.EndHour;
         }
 
+        public static Dictionary<string, string> GetDataFromTXT()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            try
+            {
+                List<string> listFromTXT = System.IO.File.ReadAllLines(_url_txt).ToList();
+                List<string[]> listSplitted = new List<string[]>();
+
+                int totalRecords = listFromTXT.Count();
+                for (int i = 0; i < totalRecords; i++)
+                {
+                    if (listFromTXT[i].Contains("="))
+                        
+                    listSplitted.Add(listFromTXT[i].Split('='));
+                    else { 
+                        listFromTXT.RemoveAt(i);
+                        i--; totalRecords--;
+                    }
+                }
+
+                listSplitted.ForEach(x => {
+                    result.Add(x[0], x[1]);
+                });
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+            return result;
+        }
+
+
+      
     }
 }
