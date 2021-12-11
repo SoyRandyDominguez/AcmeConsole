@@ -41,6 +41,9 @@ namespace Acme.Application.EmployeeScheduleService
             {
                 Dictionary<string, string> data = _repository.GetDataFromTXT();
                 //Convert dicctionary to list of object ( List<EmployeeSchedule> )
+                if (data == null)
+                    return false;
+
                 List<EmployeeSchedule> EmployeeSchedules = DiccionaryToList(data);
                 List<EmployeeSchedule> results = new List<EmployeeSchedule>();
                 for (int r = 0; r < EmployeeSchedules.Count; r++)

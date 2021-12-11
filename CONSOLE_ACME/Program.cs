@@ -19,7 +19,8 @@ namespace AcmeConsole
             IEmployeeScheduleAppService _service = new EmployeeScheduleAppService(new TxtRepository());
             Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
             Console.WriteLine("");
-            _service.GetEmployeeTogetherFrequencyTable();
+            if (!_service.GetEmployeeTogetherFrequencyTable())
+                Console.WriteLine("Error --- something wrong");
             Console.WriteLine(""); 
             Console.WriteLine("_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*");
             Console.WriteLine("");
