@@ -36,7 +36,7 @@ namespace Acme.Application.EmployeeScheduleService
 
         public bool GetEmployeeTogetherFrequencyTable()
         {
-            bool result = false;
+            bool result = true;
             try
             {
                 Dictionary<string, string> data = _repository.GetDataFromTXT();
@@ -66,10 +66,6 @@ namespace Acme.Application.EmployeeScheduleService
                                 {
                                     resultTable.Name = EmployeeSchedules[r].Name + " " + EmployeeSchedulesAux[i].Name;
                                     resultTable.Schedule.Add(SimilarSchedule);
-                                }
-                                else
-                                {
-                                    result = false;
                                 }
 
 
