@@ -24,6 +24,17 @@ _As a recommendation, you could go to the base folder of the already cloned proj
 private static readonly string _url_txt = @"C:\{project location}\CONSOLE_ACME\Acme.Repository\Data\database.txt";
 ```
 
+### To Run with DotNet 5 📋
+_To run the application, open the command console and go to the root of the project and execute:_
+```
+dotnet run -- project ACME.Dotnet5
+```
+_I can also go to the ACME.Dotnet5 project folder and just run:_
+
+```
+dotnet run
+```
+
 ## Author ✒️
 * **Randy Dominguez* - [randydmz](https://github.com/SoyRandyDominguez)
 
